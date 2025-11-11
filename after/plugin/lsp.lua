@@ -40,6 +40,10 @@ local cmp = require("cmp")
 require("lsp-zero").cmp_action()
 
 cmp.setup({
+  preselect = cmp.PreselectMode.Item,
+  completion = {
+    completeopt = 'menu,menuone,preview',
+  },
   snippet = {
     expand = function(args)
       require("luasnip").lsp_expand(args.body)
