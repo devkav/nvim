@@ -52,6 +52,13 @@ cmp.setup({
   mapping = {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
     ["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.confirm()
+      else
+        fallback()
+      end
+    end)
   },
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
