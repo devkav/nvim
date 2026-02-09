@@ -14,11 +14,13 @@ end)
 
 vim.keymap.set("n", "<leader>paf", function()
 	builtin.find_files({ no_ignore = true, hidden = true });
-end)
+end, {})
 
 vim.keymap.set("n", "<leader>pal", function()
-	builtin.live_grep({ no_ignore = true, hidden = true });
-end)
+	builtin.live_grep({
+    additional_args = { "--no-ignore", "--hidden" }
+  });
+end, {})
 
 ------------
 -- COLORS --

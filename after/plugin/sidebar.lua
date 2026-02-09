@@ -3,7 +3,8 @@ require("sidebar-nvim").setup({
   sections = {"files", "todos", "git"},
   files = {
     show_hidden = true,
-    ignored_paths = {"%.git$", "%.DS_Store$", "%__pycache__$"}
+    ignored_paths = {"%.git$", "%.DS_Store$", "%__pycache__$"},
+    trash_dir = vim.loop.os_homedir() .. "/.Trash/"
   },
   hide_statusline = true,
 })
