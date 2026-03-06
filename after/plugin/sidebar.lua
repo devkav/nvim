@@ -4,7 +4,7 @@ require("sidebar-nvim").setup({
   files = {
     show_hidden = true,
     ignored_paths = {"%.git$", "%.DS_Store$", "%__pycache__$"},
-    trash_dir = vim.loop.os_homedir() .. "/.Trash/"
+    trash_dir = vim.env.NVIM_TRASH_DIR or vim.fn.expand("~/.Trash")
   },
   hide_statusline = true,
 })
@@ -15,8 +15,8 @@ vim.keymap.set("n", "<leader>z", vim.cmd.SidebarNvimToggle)
 -- Automatically focus on sidebar on startup
 --[[
 vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		vim.cmd.SidebarNvimFocus()
-	end,
+  callback = function()
+    vim.cmd.SidebarNvimFocus()
+  end,
 })
 ]]--

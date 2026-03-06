@@ -8,6 +8,9 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
             vim.wo.number = true
             vim.wo.relativenumber = true
             vim.wo.statuscolumn = "%s%{&nu ? v:lnum : ''} %{&rnu ? v:relnum : ''} "
+
+            vim.opt.wrap = true
+            vim.opt.linebreak = false
         end
     end,
 })
@@ -19,7 +22,9 @@ vim.opt.expandtab = true
 
 vim.opt.smartindent = true
 
-vim.opt.wrap = false
+vim.opt.wrap = true
+vim.opt.linebreak = false
+vim.opt.ignorecase = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false

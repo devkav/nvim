@@ -9,15 +9,15 @@ vim.keymap.set("n", "<leader>pr", builtin.lsp_references, {})
 vim.keymap.set("n", "<leader>pl", builtin.live_grep, {})
 
 vim.keymap.set("n", "<leader>ps", function()
-	builtin.grep_string({ search = vim.fn.input("Grep > ") });
+  builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
 
 vim.keymap.set("n", "<leader>paf", function()
-	builtin.find_files({ no_ignore = true, hidden = true });
+  builtin.find_files({ no_ignore = true, hidden = true });
 end, {})
 
 vim.keymap.set("n", "<leader>pal", function()
-	builtin.live_grep({
+  builtin.live_grep({
     additional_args = { "--no-ignore", "--hidden" }
   });
 end, {})
@@ -45,7 +45,11 @@ require("telescope").setup{
     file_ignore_patterns = {
       "node_modules",
       "package%-lock.json",
-      ".git/"
+      ".git/",
+      "logs/",
+      "uv.lock",
+      "tests",
+      "Cargo.lock"
     },
   },
   pickers = {

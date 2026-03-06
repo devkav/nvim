@@ -33,9 +33,9 @@ return require("packer").startup(function(use)
     }
   }
   use {
-	  "nvim-telescope/telescope.nvim",
+    "nvim-telescope/telescope.nvim",
     tag = "*",
-	  requires = {
+    requires = {
       "nvim-lua/plenary.nvim"
     }
   }
@@ -47,16 +47,16 @@ return require("packer").startup(function(use)
     end
   }
   use({
-	  "nyoom-engineering/oxocarbon.nvim",
-	  as = "oxocarbon",
-	  config = function()
-		  vim.cmd("colorscheme oxocarbon")
-	  end
+    "nyoom-engineering/oxocarbon.nvim",
+    as = "oxocarbon",
+    config = function()
+      vim.cmd("colorscheme oxocarbon")
+    end
   })
   use {
-	  "VonHeikemen/lsp-zero.nvim",
-	  requires = {
-        -- LSP Support
+    "VonHeikemen/lsp-zero.nvim",
+    requires = {
+      -- LSP Support
       {"neovim/nvim-lspconfig"},
       {"williamboman/mason.nvim"},
       {"williamboman/mason-lspconfig.nvim"},

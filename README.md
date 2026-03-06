@@ -36,6 +36,15 @@ Finally, open up neovim and install everything with packer.
 :PackerSync
 ```
 
+### Machine-Specific Config
+
+Create `lua/devan/local.lua` to set machine-specific settings. This file is 
+gitignored and will be silently skipped if it doesn't exist.
+
+```lua
+vim.env.NVIM_TRASH_DIR = "/path/to/trash"
+```
+
 ### Font
 
 My preferred font for this setup is [Hack Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Hack.zip).
