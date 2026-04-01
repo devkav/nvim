@@ -18,7 +18,7 @@ Icons:
 ]]--
 
 dashboard.section.header.opts.hl = "Comment"
-dashboard.section.header.val = ascii.art.misc.hydra.hydra
+dashboard.section.header.val = ascii.art.text.neovim.sharp
 dashboard.section.buttons.val = {
   explorer_button,
   file_button,
