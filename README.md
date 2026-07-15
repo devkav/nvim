@@ -4,9 +4,16 @@ This is my neovim config.
 
 ## Prerequisites
 
-Ensure an up-to-date version of npm is installed.
-Additionally, you will need to ensure that [ripgrep](https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation)
-is installed (for treesitter).
+- **Neovim 0.12.0 or later.** nvim-treesitter tracks its `main` branch, which
+  does not support anything older.
+- **`tree-sitter-cli`**, version 0.26.1 or later. Install it from your package
+  manager (`pacman -S tree-sitter-cli`, `brew install tree-sitter`), *not* from
+  npm -- the npm build is not supported. Parsers are compiled with
+  `tree-sitter build`, so nothing highlights without it.
+- **A C compiler** on your path, to compile the parsers.
+- An up-to-date version of npm (for LSP servers installed via Mason).
+- [ripgrep](https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation)
+  (for telescope's live grep).
 
 
 ## Setup
@@ -59,15 +66,21 @@ Add the following line to your .bashrc/.zshrc:
 alias vim='nvim'
 ```
 
-### Linux Troubleshooting
+### Treesitter Troubleshooting
 
-If you run in to issues with treesitter on Linux, you may need to specify the compiler.
-To fix, add the following lines to `after/plugin/treesitter.lua`:
+Check `:checkhealth nvim-treesitter` first; it reports a missing `tree-sitter`
+CLI or C compiler directly.
 
-```lua
-require'nvim-treesitter.install'.compilers = {
-    "gcc"
-}
+If no parsers build and the errors mention `ENOENT: ... 'tree-sitter'`, the CLI
+is missing -- see Prerequisites above.
+
+To use a specific C compiler, set `CC` in your environment before starting
+neovim (`tree-sitter build` honours it):
+
+```
+export CC=clang
 ```
 
-You can change `gcc` to be any C compiler such as `clang`, `cc`, or `zig`.
+Parsers are installed to `stdpath("data")/site/parser`, not into the plugin
+directory. To rebuild them all from scratch, delete that directory and run
+`:TSInstall` again.
