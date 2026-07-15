@@ -8,6 +8,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
             vim.wo.number = true
             vim.wo.relativenumber = true
             vim.wo.statuscolumn = "%s%{&nu ? v:lnum : ''} %{&rnu ? v:relnum : ''} "
+            vim.cmd("GitGutterEnable")
 
             vim.opt.wrap = true
             vim.opt.linebreak = false

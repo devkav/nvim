@@ -66,7 +66,7 @@ To fix, add the following lines to `after/plugin/treesitter.lua`:
 
 ```lua
 require'nvim-treesitter.install'.compilers = {
-      "gcc"
+    "gcc"
 }
 ```
 

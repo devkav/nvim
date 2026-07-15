@@ -35,7 +35,6 @@ vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { link = "TelescopeBorder" });
 vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { link = "TelescopeBorder" });
 vim.api.nvim_set_hl(0, "TelescopeTitle", { link = "TelescopeBorder" });
 vim.api.nvim_set_hl(0, "TelescopePromptCounter", { link = "TelescopeBorder" });
-vim.api.nvim_set_hl(0, "TelescopePromptBorder", { link = "TelescopeBorder" });
 
 -----------
 -- SETUP --
